@@ -50,7 +50,7 @@ const ProducerDashboard = () => {
                             setActiveIndex(1)
                         }}
                         key="Pro_Booking" icon={<AreaChartOutlined />}>
-                        Pro_Booking
+                        Booking Request
                     </Menu.Item>
                     {/* <Menu.Item
                         onClick={() => {
