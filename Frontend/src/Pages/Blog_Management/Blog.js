@@ -6,7 +6,6 @@ import Grid from "@material-ui/core/Grid";
 import { Card, CardContent, Typography } from "@material-ui/core";
 import axios from "axios";
 import Button from "react-bootstrap/Button";
-import ProductCatogory from '../../Components/ProductCatogory';
 import { useNavigate } from "react-router-dom";
 import BlogSlider from "../../Components/BlogSlider";
 

@@ -6,7 +6,7 @@ import AllDetailTable from "./components/AllDetailTable";
 
 // axios.defaults.baseURL = "http://localhost:8080";
 
-function PBooking() {
+function ProBooking() {
   const [addSection, setAddSection] = useState(false);
   const [editSection, setEditSection] = useState(false)
   const [formData, setFormData] = useState({
@@ -126,7 +126,7 @@ function PBooking() {
     <>
       <div className="container1">
         <button className="btn btn-add" onClick={() => setAddSection(true)}>
-          Add a Programme - Admin
+          Add a Programme - By Producer
         </button>
         </div>
         
@@ -162,4 +162,4 @@ function PBooking() {
     </>
   );
 }
-export default PBooking;
+export default ProBooking;

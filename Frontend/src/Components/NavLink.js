@@ -36,6 +36,7 @@ function NavLink() {
             <Nav.Link className='btnLink' href="/ContactUs" >ContactUs</Nav.Link>
             <Nav.Link className='btnLink' href="/Profile" >Profile</Nav.Link>
             {localStorage.getItem("userRole") === "admin" && <Nav.Link className='btnLink' href="/AdminDashboard" >Admin Dashboard</Nav.Link>}
+            {localStorage.getItem("userRole") === "producer" && <Nav.Link className='btnLink' href="/ProducerDashboard" >Producer Dashboard</Nav.Link>}
           </Nav>
           <Form className="d-flex">
             {

@@ -119,6 +119,7 @@ const UsersData = () => {
                     <Form.Item label="Role" name="role" rules={[{ required: true, message: 'Please select a role' }]}>
                         <Select>
                             <Option value="admin">Admin</Option>
+                            <Option value="producer">Producer</Option>
                             <Option value="user">User</Option>
                         </Select>
                     </Form.Item>
