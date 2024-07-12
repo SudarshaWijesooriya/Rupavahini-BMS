@@ -20,6 +20,7 @@ import ContactUs from "./Pages/Admin_Management/ContactUs";
 import Profile from "./Pages/Admin_Management/Profile";
 
 import Booking from "./Pages/Booking/PBooking";
+import ProBooking from "./Pages/Booking/ProBooking";
 
 
 function App() {
@@ -40,6 +41,7 @@ function App() {
         <Route exact path="/UpdateBlogDetails" element={<UpdateBlog />} />
         <Route exact path="/Profile" element={<Profile />} />
         <Route exact path="/Booking" element={<Booking />} />
+        <Route exact path="/ProBooking" element={<ProBooking />} />
         {localStorage.getItem("userRole") === "admin" && (
           <Route exact path="/AdminDashboard" element={<AdminDashboard />}
            />

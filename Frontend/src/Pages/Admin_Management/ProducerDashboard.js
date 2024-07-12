@@ -12,7 +12,7 @@ import {
 import ViewBlogDetails from '../Blog_Management/ViewBlogDetails';
 import BloggerPage from '../Blog_Management/BloggerPage';
 import WelcomeProducerDashboard from './WelcomeProducerDashboard';
-import P_Booking from '../Booking/PBooking';
+import Pro_Booking from '../Booking/ProBooking';
 import AddBoxIcon from '@material-ui/icons/AddBox';
 
 const { Sider, Content } = Layout;
@@ -21,7 +21,7 @@ const ProducerDashboard = () => {
     const [activeIndex, setActiveIndex] = useState(0)
     const content = [
         <WelcomeProducerDashboard />,
-        <P_Booking />,
+        <Pro_Booking />,
         <ViewBlogDetails />,
         <BloggerPage />,
         <div></div>,
@@ -49,7 +49,7 @@ const ProducerDashboard = () => {
                         onClick={() => {
                             setActiveIndex(1)
                         }}
-                        key="P_Booking" icon={<AreaChartOutlined />}>
+                        key="Pro_Booking" icon={<AreaChartOutlined />}>
                         Pro_Booking
                     </Menu.Item>
                     {/* <Menu.Item
