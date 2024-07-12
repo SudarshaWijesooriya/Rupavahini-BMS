@@ -14,6 +14,7 @@ import ViewBlogDetails from '../Blog_Management/ViewBlogDetails';
 import BloggerPage from '../Blog_Management/BloggerPage';
 import WelcomeDashboard from './WelcomeDashboard';
 import P_Booking from '../Booking/PBooking';
+import Pro_Booking from '../Booking/ProBooking';
 import AddBoxIcon from '@material-ui/icons/AddBox';
 
 const { Sider, Content } = Layout;
@@ -58,8 +59,15 @@ const AdminDashboard = () => {
                         onClick={() => {
                             setActiveIndex(2)
                         }}
+                        key="Pro_Booking" icon={<AreaChartOutlined />}>
+                        Pro Booking
+                    </Menu.Item>
+                    <Menu.Item
+                        onClick={() => {
+                            setActiveIndex(3)
+                        }}
                         key="P_Booking" icon={<AreaChartOutlined />}>
-                        Pro_Booking
+                        Booking Request
                     </Menu.Item>
                     {/* <Menu.Item
                         onClick={() => {
