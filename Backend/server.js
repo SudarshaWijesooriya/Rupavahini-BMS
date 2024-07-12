@@ -28,18 +28,6 @@ app.listen(port, () => {
     console.log("PORT conneted on " + port);
 })
 
-//plant route
-const plantRoute = require("./Routes/PlantRoutes");
-app.use("/api/products", plantRoute);
-
-//machine route
-const machineRoute = require("./Routes/MchineRoute")
-app.use("/api/machines", machineRoute)
-
-//fetilizer route
-const fertilizerRoute = require("./Routes/FertilizerRoute");
-app.use("/api/fertilizers", fertilizerRoute)
-
 //Blog route
 const BlogRouter = require("./Routes/BlogRoute");
 app.use("/api/Blogs", BlogRouter);
@@ -48,8 +36,5 @@ app.use("/api/Blogs", BlogRouter);
 const UserManagementRoutes = require("./Controllers/UserController");
 app.use("/api/users", UserManagementRoutes);
 
-// //booking managing routes
-// const booking = require("./Controllers/BookingController");
-// app.use("/api/booking", booking);
 
 
