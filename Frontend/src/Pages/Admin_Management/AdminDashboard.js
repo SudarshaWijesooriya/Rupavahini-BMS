@@ -25,6 +25,7 @@ const AdminDashboard = () => {
         <WelcomeDashboard />,
         <UsersData />,
         <P_Booking />,
+        <Pro_Booking />,
         <ViewBlogDetails />,
         <BloggerPage />,
         <div></div>,
