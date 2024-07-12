@@ -86,6 +86,7 @@ const AddUserModal = ({ visible, onCancel, onAdd }) => {
         >
           <Select>
             <Option value="admin">Admin</Option>
+            <Option value="producer">Producer</Option>
             <Option value="user">User</Option>
           </Select>
         </Form.Item>

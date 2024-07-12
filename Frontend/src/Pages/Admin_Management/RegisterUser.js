@@ -83,6 +83,7 @@ const RegisterUser = () => {
           <Form.Item label="User Role" name="userRole" rules={[{ required: true, message: 'Please select a user role' }]}>
             <Select>
               <Option value="user">User</Option>
+              <Option value="producer">Producer</Option>
               {/* <Option value="investor">Investor</Option> */}
             </Select>
           </Form.Item>

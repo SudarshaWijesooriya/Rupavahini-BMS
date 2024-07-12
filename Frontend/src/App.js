@@ -14,6 +14,7 @@ import ViewBlogDetails from "./Pages/Blog_Management/ViewBlogDetails";
 import UpdateBlog from "./Pages/Blog_Management/UpdateBlog";
 import "antd/dist/reset.css";
 import AdminDashboard from "./Pages/Admin_Management/AdminDashboard";
+import ProducerDashboard from "./Pages/Admin_Management/ProducerDashboard";
 
 import ContactUs from "./Pages/Admin_Management/ContactUs";
 import Profile from "./Pages/Admin_Management/Profile";
@@ -40,7 +41,13 @@ function App() {
         <Route exact path="/Profile" element={<Profile />} />
         <Route exact path="/Booking" element={<Booking />} />
         {localStorage.getItem("userRole") === "admin" && (
-          <Route exact path="/AdminDashboard" element={<AdminDashboard />} />
+          <Route exact path="/AdminDashboard" element={<AdminDashboard />}
+           />
+        )}
+
+        {localStorage.getItem("userRole") === "producer" && (
+          <Route exact path="/ProducerDashboard" element={<ProducerDashboard />}
+           />
         )}
 
       </Routes>

@@ -31,7 +31,9 @@ function Login() {
       localStorage.setItem("email", val.data.user.email)
       if (val.data.user.role === "admin") {
         navigate("/AdminDashboard")
-      }  else {
+      }  else if (val.data.user.role === "producer") {
+        navigate("/ProducerDashboard")
+      }  else{
         navigate("/")
       }
     }).catch(err => {
