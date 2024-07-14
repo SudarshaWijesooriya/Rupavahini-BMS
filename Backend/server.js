@@ -40,3 +40,7 @@ app.use("/api/users", UserManagementRoutes);
 const bookingRoute = require('./Routes/BookingRoute');
 app.use('/api/booking', bookingRoute);
 
+//programme booking route
+const programmeRoute = require('./Routes/programmeRoute');
+app.use('/api/programmes', programmeRoute);
+
