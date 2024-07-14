@@ -1,12 +1,12 @@
 import '../../Styles/PBooking.css';
 import { useEffect, useState } from "react";
 import axios from "axios";
-import Formtable from "./components/Formtable";
-import AllDetailTable from "./components/AllDetailTable";
+import Formtable from "./components/ProFromtable";
+import AllDetailTable from "./components/ProDetailTable";
 
 axios.defaults.baseURL = "http://localhost:4000/api";
 
-function PBooking() {
+function MyProBooking() {
   const [addSection, setAddSection] = useState(false);
   const [editSection, setEditSection] = useState(false)
   const [formData, setFormData] = useState({
@@ -66,7 +66,7 @@ function PBooking() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const response = await axios.post("/booking", formData);
+    const response = await axios.post("/programmes", formData);
     if (response.status === 200) {
       setAddSection(false);
       alert("Programme created successfully");
@@ -76,7 +76,7 @@ function PBooking() {
   };
 
   const getFetchData = async () => {
-    const response = await axios.get("/booking");
+    const response = await axios.get("/programmes");
     if (response.status === 200) {
       setDataList(response.data);
     }
@@ -87,7 +87,7 @@ function PBooking() {
   }, []);
 
   const handleDelete = async (id) => {
-    const response = await axios.delete(`/booking/${id}`);
+    const response = await axios.delete(`/programmes/${id}`);
     if (response.status === 200) {
       getFetchData();
       alert("Programme deleted successfully");
@@ -96,7 +96,7 @@ function PBooking() {
 
   const handleUpdate = async (e) => {
     e.preventDefault();
-    const response = await axios.put(`/booking/${formDataEdit._id}`, formDataEdit);
+    const response = await axios.put(`/programmes/${formDataEdit._id}`, formDataEdit);
     if (response.status === 200) {
       getFetchData();
       alert("Programme updated successfully");
@@ -158,4 +158,4 @@ function PBooking() {
     </>
   );
 }
-export default PBooking;
+export default MyProBooking;

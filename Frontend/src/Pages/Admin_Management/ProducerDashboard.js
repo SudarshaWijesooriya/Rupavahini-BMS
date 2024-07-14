@@ -12,7 +12,8 @@ import {
 import ViewBlogDetails from '../Blog_Management/ViewBlogDetails';
 import BloggerPage from '../Blog_Management/BloggerPage';
 import WelcomeProducerDashboard from './WelcomeProducerDashboard';
-import Pro_Booking from '../Booking/ProBooking';
+import MyPro_Booking from '../Booking/MyProBooking';
+// import Pro_Booking from '../Booking/ProBooking';
 import AddBoxIcon from '@material-ui/icons/AddBox';
 
 const { Sider, Content } = Layout;
@@ -21,7 +22,8 @@ const ProducerDashboard = () => {
     const [activeIndex, setActiveIndex] = useState(0)
     const content = [
         <WelcomeProducerDashboard />,
-        <Pro_Booking />,
+        <MyPro_Booking />,
+        // <Pro_Booking />,
         <ViewBlogDetails />,
         <BloggerPage />,
         <div></div>,
@@ -49,9 +51,16 @@ const ProducerDashboard = () => {
                         onClick={() => {
                             setActiveIndex(1)
                         }}
+                        key="MyPro_Booking" icon={<AreaChartOutlined />}>
+                        My Requests
+                    </Menu.Item>
+                    {/* <Menu.Item
+                        onClick={() => {
+                            setActiveIndex(2)
+                        }}
                         key="Pro_Booking" icon={<AreaChartOutlined />}>
                         Booking Request
-                    </Menu.Item>
+                    </Menu.Item> */}
                     {/* <Menu.Item
                         onClick={() => {
                             setActiveIndex(2)

@@ -1,6 +1,6 @@
 import React from 'react'
 
-function AllDetailTable({ dataList, handleEdit, handleDelete }) {
+function ProDetailTable({ dataList, handleEdit, handleDelete }) {
   return (
     <div className="table-outer">
     <div className="tableContainer">
@@ -68,5 +68,5 @@ function AllDetailTable({ dataList, handleEdit, handleDelete }) {
   );
 }
 
-export default AllDetailTable
+export default ProDetailTable
 

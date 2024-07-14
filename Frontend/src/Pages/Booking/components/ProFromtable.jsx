@@ -2,7 +2,7 @@ import React from 'react'
 // import CloseRoundedIcon from '@mui/icons-material/CloseRounded';
 import "../../../Styles/PBooking.css";
 
-const Formtable = ({handleSubmit,handleOnChange,handleclose,rest}) => {
+const ProFormtable = ({handleSubmit,handleOnChange,handleclose,rest}) => {
   return (
     <div className="addContainer">
       <div className='smalladdcontainer'>
@@ -216,4 +216,4 @@ const Formtable = ({handleSubmit,handleOnChange,handleclose,rest}) => {
   )
 }
 
-export default Formtable
+export default ProFormtable
