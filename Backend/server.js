@@ -36,5 +36,7 @@ app.use("/api/Blogs", BlogRouter);
 const UserManagementRoutes = require("./Controllers/UserController");
 app.use("/api/users", UserManagementRoutes);
 
-
+// Programme routes
+const bookingRoute = require('./Routes/BookingRoute');
+app.use('/api/booking', bookingRoute);
 

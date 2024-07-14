@@ -208,7 +208,7 @@ const Formtable = ({handleSubmit,handleOnChange,handleclose,rest}) => {
                     value={rest.equipment}
                   />
                 </div>
-                <button className="btn">Submit</button>
+                <button className="btn" type="submit">Submit</button>
               </div>
             </form>
             </div>

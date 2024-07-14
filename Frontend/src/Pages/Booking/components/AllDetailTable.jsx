@@ -58,7 +58,7 @@ function AllDetailTable({ dataList, handleEdit, handleDelete }) {
             ))
           ) : (
             <tr>
-              <td colSpan="4" style={{ textAlign: "center" }}>No data is Available</td>
+              <td colSpan="19" style={{ textAlign: "center" }}>No data is Available</td>
             </tr>
           )}
         </tbody>
