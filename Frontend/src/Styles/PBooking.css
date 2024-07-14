@@ -1,0 +1,227 @@
+*{
+  box-sizing: border-box;
+}
+:root {
+  --theame-color: #711313;
+}
+
+.container {
+  max-width: fit-content;
+  margin: 50px auto;
+}
+
+.container1 {
+  padding: 10px;
+  max-width: fit-content;
+  margin: 50px 50px auto;
+  
+} 
+
+.btn {
+  border: none;
+  padding: 7px 15px;
+  font-size: 18px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.btn-add{
+  background: var(--theame-color);
+  color: white;
+}
+
+.addContainer {
+  position: absolute;
+  background-color: white;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.addContainer .smalladdcontainer{
+  position: absolute;
+  left: 10%;
+  right: 10%;
+  top: 5%;
+  bottom: 10%;
+  max-width: fit-content;
+  height: fit-content;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.addContainer .smalladdcontainer form{
+  width: 100%;
+  max-width: 1200px;
+  height: 90%;
+  background-color: white;
+  /* display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 5px; */
+  padding: 30px 30px;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.2);
+  border-radius: 5px;
+}
+
+.addContainer form .lableinputs label{
+  font-size: 18px;
+}
+
+
+
+.addContainer form .lableinputs input {
+  font-size: 16px;
+  padding: 5px;
+  background-color: #f2f2f2;
+  border: 1px solid #ddd;
+  width: 90%;
+}
+
+.addContainer form .radiooption input {
+  font-size: 16px;
+  margin-top: 10px;
+  padding: 5px;
+  background-color: #f2f2f2;
+  border: 1px solid #ddd;
+  width: 10%;
+}
+
+
+
+.addContainer form button{
+  background-color: var(--theame-color);
+  color: white;
+  font-weight: 500;
+  margin-bottom: 15px;
+  margin-top: 20px;
+}
+
+.addContainer form .close-btn {
+  position: absolute; /* Position absolutely within container */
+  top: 2px; /* Adjust top position as needed */
+  right: 2px; /* Adjust right position as needed */
+  /* margin-left: auto; */
+  font-size: 50px;
+  width: 60px;
+  height: 60px;
+  cursor: pointer;
+  
+}
+
+.addContainer form .form-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* Maintain 3-column layout */
+  grid-gap: 15px; /* Adjust spacing as needed */
+}
+
+.addContainer form .form-grid .lableinputs {
+  margin-bottom: 15px; /* Add space between field rows */
+}
+
+.addContainer form .form-grid .radiooption {
+  margin-left: 0;
+  align-items: flex-start;
+}
+
+.addContainer form .form-grid .radiooption input{
+  margin-left: 0;
+  text-align: left;
+}
+
+.addContainer form .form-grid .lableinputsdrop {
+  margin-bottom: 15px;
+}
+
+.addContainer form .lableinputsdrop label{
+  font-size: 18px;
+}
+
+.addContainer form .lableinputsdrop select {
+  font-size: 16px;
+  padding: 5px;
+  background-color: #f2f2f2;
+  border: 1px solid #ddd;
+  width: 90%;
+}
+
+/*----------- all detail table ------------------------------------------------------------------------------------*/
+
+.table-outer{
+  border: 1px solid #ddd;
+  box-shadow: 0px 0px 3px black;
+  margin: 20px;
+  border-radius: 5px;
+  max-width: fit-content;
+}
+.table-outer .tableContainer {
+  max-height: 300px;
+  /* overflow-y: scroll; */
+  overflow-y: auto;
+  margin: 20px;
+}
+
+.tableContainer table{
+  border: 1px solid black;
+  border-collapse: separate;
+  border-spacing: 0px;
+  min-width: max-content;
+  font-size: 10px;
+  table-layout: fixed; /* Added to fix table layout */
+  width: 100%; /* Added to ensure table takes full width */
+}
+
+.tableContainer table thead th{
+  position: static;
+  top: 0px;
+  background-color: var(--theame-color);
+  color: white;
+  z-index: 2;
+}
+
+.tableContainer table thead tr th{
+  border: 1px solid black;
+  border-radius: 3px;
+  padding: 10px;
+}
+
+.tableContainer table tbody tr td{
+  border: 1px solid var(--theame-color);
+  border-radius: 3px;
+  padding: 10px;
+  background-color: #d4cfcf;
+}
+
+
+.tableContainer .btn-edit,
+.tableContainer .btn-delete{
+  font-size: 16px;
+  padding: 5px 10px;
+  margin: 5px 10px;
+  align-items:start;
+}
+
+.tableContainer .btn-edit{
+  background-color: #1b5c97;
+  color: white;
+}
+
+.tableContainer .btn-delete{
+  background-color: #d52405;
+  color: white;
+}
+
+/* Style for last column */
+.tableContainer tbody tr td:last-child,
+.tableContainer thead tr th:last-child {
+  position: static;
+  right: 0; /* Fixed position for last column */
+  z-index: 1; /* Ensure last column stays behind header */
+  width: 100px;
+}
+
+/*-----------------------------------------------------------------------------------------------*/
