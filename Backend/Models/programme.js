@@ -4,82 +4,59 @@ const Schema = mongoose.Schema;
 
 const programmeSchema = new Schema({
     bookingNo: {
-        type: String,
-        required: true,
-        unique: true
+        type: String
     },
     division: {
-        type: String,
-        required: true
+        type: String
     },
     unit: {
-        type: String,
-        required: true
+        type: String
     },
     productName: {
-        type: String,
-        required: true
+        type: String
     },
     serviceNo: {
-        type: String,
-        required: true
+        type: String
     },
     PPNo: {
-        type: String,
-        required: true
+        type: String
     },
     date: {
-        type: Date,
-        required: true
+        type: Date
     },
     type: {
-        type: String,
-        enum: ['post production', 'recording', 'live'],
-        required: true
+        type: String
     },
     location: {
-        type: String,
-        required: true
+        type: String
     },
     proTitle: {
-        type: String,
-        required: true
+        type: String
     },
     episodeNo: {
-        type: Number,
-        required: true
+        type: Number
     },
     proDuration: {
-        type: String,
-        required: true
+        type: String
     },
     dateOfTelecast: {
-        type: Date,
-        required: true
+        type: Date
     },
     timeOfTelecast: {
-        type: String,
-        required: true
+        type: String
     },
     freqOfTelecast: {
-        type: String,
-        enum: ['single', 'daily', 'weekly', 'for night', 'monthly'],
-        required: true
+        type: String
     },
     scheduleChannel: {
-        type: String,
-        enum: ['Rupavahini', 'Eye'],
-        default: 'Rupavahini'
+        type: String
     },
     typeOfBooking: {
-        type: String,
-        enum: ['single', 'book daily', 'book weekly', 'book monthly'],
-        required: true
+        type: String
     },
     equipment: {
-        type: String,
-        required: true
+        type: String
     }
-}, { timestamps: true });
+    }, { timestamps: true });
 
 module.exports = mongoose.model('Programme', programmeSchema);

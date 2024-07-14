@@ -1,10 +1,10 @@
 import '../../Styles/PBooking.css';
 import { useEffect, useState } from "react";
 import axios from "axios";
-import Formtable from "./components/Formtable";
-import AllDetailTable from "./components/AllDetailTable";
+import Formtable from "./components/ProFromtable";
+import AllDetailTable from "./components/ProDetailTable";
 
-// axios.defaults.baseURL = "http://localhost:8080";
+axios.defaults.baseURL = "http://localhost:4000/api";
 
 function MyProBooking() {
   const [addSection, setAddSection] = useState(false);
@@ -15,17 +15,17 @@ function MyProBooking() {
     unit: "",
     productName: "",
     serviceNo: "",
-    ppNumber: "",
+    PPNo: "",
     date: "",
     type: "",
     location: "",
-    programTitle: "",
+    proTitle: "",
     episodeNo: "",
-    programeDuration: "",
+    proDuration: "",
     dateOfTelecast: "",
     timeOfTelecast: "",
     scheduleChannel: "",
-    frequencyOfTelecast: "",
+    freqOfTelecast: "",
     typeOfBooking: "",
     equipment: "",
   });
@@ -36,17 +36,17 @@ function MyProBooking() {
     unit: "",
     productName: "",
     serviceNo: "",
-    ppNumber: "",
+    PPNo: "",
     date: "",
     type: "",
     location: "",
-    programTitle: "",
+    proTitle: "",
     episodeNo: "",
-    programeDuration: "",
+    proDuration: "",
     dateOfTelecast: "",
     timeOfTelecast: "",
     scheduleChannel: "",
-    frequencyOfTelecast: "",
+    freqOfTelecast: "",
     typeOfBooking: "",
     equipment: "",
     _id: "",
@@ -66,67 +66,63 @@ function MyProBooking() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const data = await axios.post("/create", formData);
-    console.log(data);
-    if (data.data.success){
-      setAddSection(false)
-      alert(data.data.message)
-      getFetchData()
-      setFormData(false)
+    const response = await axios.post("/programmes", formData);
+    if (response.status === 200) {
+      setAddSection(false);
+      alert("Programme created successfully");
+      getFetchData();
+      setFormData({});
     }
   };
 
-  const getFetchData = async()=>{
-    const data = await axios.get("/")
-    console.log(data)
-    if (data.data.success){
-      setDataList(data.data.data)
+  const getFetchData = async () => {
+    const response = await axios.get("/programmes");
+    if (response.status === 200) {
+      setDataList(response.data);
     }
   };
-  useEffect(()=>{
-    getFetchData()
-  },[])
 
-  const handleDelete = async(id)=>{
-    const data = await axios.delete("/delete/"+id)
+  useEffect(() => {
+    getFetchData();
+  }, []);
 
-    if (data.data.success){
-      getFetchData()
-      alert(data.data.message)
+  const handleDelete = async (id) => {
+    const response = await axios.delete(`/programmes/${id}`);
+    if (response.status === 200) {
+      getFetchData();
+      alert("Programme deleted successfully");
     }
-  }
+  };
 
-  const handleUpdate = async(e)=>{
-    e.preventDefault()
-    const data = await axios.put("/update",formDataEdit)
-    if (data.data.success){
-      getFetchData()
-      alert(data.data.message)
-      setEditSection(false)
+  const handleUpdate = async (e) => {
+    e.preventDefault();
+    const response = await axios.put(`/programmes/${formDataEdit._id}`, formDataEdit);
+    if (response.status === 200) {
+      getFetchData();
+      alert("Programme updated successfully");
+      setEditSection(false);
     }
-  }
+  };
 
-  const handleEditOnChange = async(e)=>{
+  const handleEditOnChange = (e) => {
     const { value, name } = e.target;
-    setFormDataEdit((preve) => {
-      return {
-        ...preve,
-        [name]: value,
-      };
-    });
-  }
+    setFormDataEdit((prev) => ({
+      ...prev,
+      [name]: value,
+    }));
+  };
 
-  const handleEdit = (el) =>{
-    setFormDataEdit(el)
-    setEditSection(true)
-  }
+  const handleEdit = (el) => {
+    setFormDataEdit(el);
+    setEditSection(true);
+  };
 
    
   return (
     <>
       <div className="container1">
         <button className="btn btn-add" onClick={() => setAddSection(true)}>
-          Add a Programme - By Producer
+          Add a Proramme
         </button>
         </div>
         
