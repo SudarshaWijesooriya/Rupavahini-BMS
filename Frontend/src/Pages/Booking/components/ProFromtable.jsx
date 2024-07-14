@@ -236,4 +236,5 @@ const ProFormtable = ({ handleSubmit, handleOnChange, handleclose, rest }) => {
   )
 }
 
+
 export default ProFormtable;
