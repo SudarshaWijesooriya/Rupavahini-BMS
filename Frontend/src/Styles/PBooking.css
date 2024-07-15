@@ -196,7 +196,7 @@
   background-color: #d4cfcf;
 }
 
-
+.tableContainer .btn-aprove,
 .tableContainer .btn-edit,
 .tableContainer .btn-delete{
   font-size: 16px;
@@ -207,6 +207,11 @@
 
 .tableContainer .btn-edit{
   background-color: #1b5c97;
+  color: white;
+}
+
+.tableContainer .btn-aprove{
+  background-color: #03430b;
   color: white;
 }
 
