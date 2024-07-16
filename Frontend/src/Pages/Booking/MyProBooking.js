@@ -9,7 +9,9 @@ axios.defaults.baseURL = "http://localhost:4000/api";
 function MyProBooking() {
   const [addSection, setAddSection] = useState(false);
   const [editSection, setEditSection] = useState(false)
+  const userEmail = localStorage.getItem('userEmail');
   const [formData, setFormData] = useState({
+    
     bookingNo: "",
     division: "",
     unit: "",
@@ -27,7 +29,7 @@ function MyProBooking() {
     scheduleChannel: "",
     freqOfTelecast: "",
     typeOfBooking: "",
-    equipment: "",
+    equipment: ""
   });
 
   const [formDataEdit, setFormDataEdit] = useState({
