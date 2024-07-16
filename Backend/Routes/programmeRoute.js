@@ -22,6 +22,6 @@ router.post('/', createProgramme);
 router.delete('/:id', deleteProgramme);
 
 // Update a Programme
-router.patch('/:id', updateProgramme);
+router.put('/:id', updateProgramme);
 
 module.exports = router;

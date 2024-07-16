@@ -8,10 +8,9 @@ axios.defaults.baseURL = "http://localhost:4000/api";
 
 function MyProBooking() {
   const [addSection, setAddSection] = useState(false);
-  const [editSection, setEditSection] = useState(false)
-  const userEmail = localStorage.getItem('userEmail');
+  const [editSection, setEditSection] = useState(false);
+  const [userEmail, setUserEmail] = useState("");
   const [formData, setFormData] = useState({
-    
     bookingNo: "",
     division: "",
     unit: "",
@@ -29,7 +28,9 @@ function MyProBooking() {
     scheduleChannel: "",
     freqOfTelecast: "",
     typeOfBooking: "",
-    equipment: ""
+    equipment: "",
+    status: "",
+    email: ""
   });
 
   const [formDataEdit, setFormDataEdit] = useState({
@@ -51,19 +52,35 @@ function MyProBooking() {
     freqOfTelecast: "",
     typeOfBooking: "",
     equipment: "",
+    email: "",
     _id: "",
   });
 
-  const [dataList, setDataList] = useState([])
+  const [dataList, setDataList] = useState([]);
+  const [filteredDataList, setFilteredDataList] = useState([]);
+
+  useEffect(() => {
+    const fetchUserEmail = async () => {
+      const id = localStorage.getItem("email");
+      const response = await axios.get(`/users/get-by-email/${id}`);
+      if (response.status === 200) {
+        const user = response.data.user[0];
+        setUserEmail(user.email);
+        setFormData((prev) => ({ ...prev, email: user.email }));
+        setFormDataEdit((prev) => ({ ...prev, email: user.email }));
+        getFetchData(user.email);
+      }
+    };
+
+    fetchUserEmail();
+  }, []);
 
   const handleOnChange = (e) => {
     const { value, name } = e.target;
-    setFormData((preve) => {
-      return {
-        ...preve,
-        [name]: value,
-      };
-    });
+    setFormData((prev) => ({
+      ...prev,
+      [name]: value,
+    }));
   };
 
   const handleSubmit = async (e) => {
@@ -72,26 +89,23 @@ function MyProBooking() {
     if (response.status === 200) {
       setAddSection(false);
       alert("Programme created successfully");
-      getFetchData();
+      getFetchData(userEmail);
       setFormData({});
     }
   };
 
-  const getFetchData = async () => {
+  const getFetchData = async (email) => {
     const response = await axios.get("/programmes");
     if (response.status === 200) {
-      setDataList(response.data);
+      const filteredData = response.data.filter((item) => item.email === email);
+      setDataList(filteredData);
     }
   };
-
-  useEffect(() => {
-    getFetchData();
-  }, []);
 
   const handleDelete = async (id) => {
     const response = await axios.delete(`/programmes/${id}`);
     if (response.status === 200) {
-      getFetchData();
+      getFetchData(userEmail);
       alert("Programme deleted successfully");
     }
   };
@@ -100,7 +114,7 @@ function MyProBooking() {
     e.preventDefault();
     const response = await axios.put(`/programmes/${formDataEdit._id}`, formDataEdit);
     if (response.status === 200) {
-      getFetchData();
+      getFetchData(userEmail);
       alert("Programme updated successfully");
       setEditSection(false);
     }
@@ -119,16 +133,15 @@ function MyProBooking() {
     setEditSection(true);
   };
 
-   
   return (
     <>
       <div className="container1">
         <button className="btn btn-add" onClick={() => setAddSection(true)}>
-          Add a Proramme
+          Add a Programme
         </button>
-        </div>
-        
-        <div className="container">
+      </div>
+      
+      <div className="container">
         {addSection && (
           <Formtable 
             handleSubmit={handleSubmit}
@@ -136,28 +149,23 @@ function MyProBooking() {
             handleclose={() => setAddSection(false)}
             rest={formData}
           />
-          )
-        }
-        {
-          editSection && (
-            <Formtable 
-              handleSubmit={handleUpdate}
-              handleOnChange={handleEditOnChange}
-              handleclose={() => setEditSection(false)}
-              rest={formDataEdit}
-            />
-          )
-        }
-        {
-          <AllDetailTable 
+        )}
+        {editSection && (
+          <Formtable 
+            handleSubmit={handleUpdate}
+            handleOnChange={handleEditOnChange}
+            handleclose={() => setEditSection(false)}
+            rest={formDataEdit}
+          />
+        )}
+        <AllDetailTable 
           dataList={dataList} 
           handleEdit={handleEdit} 
           handleDelete={handleDelete}
         />
-        }
-        
       </div>
     </>
   );
 }
+
 export default MyProBooking;

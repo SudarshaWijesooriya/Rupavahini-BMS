@@ -25,6 +25,7 @@ function ProDetailTable({ dataList, handleEdit, handleDelete }) {
             <th>Freq</th>
             <th>Type of Book</th>
             <th>Equipment</th>
+            <th>status</th>
             <th className='buttoncol'></th>
           </tr>
         </thead>
@@ -50,6 +51,7 @@ function ProDetailTable({ dataList, handleEdit, handleDelete }) {
                 <td>{el.frequencyOfTelecast}</td>
                 <td>{el.typeOfBooking}</td>
                 <td>{el.equipment}</td>
+                <td>{el.status}</td>
                 <td className='buttoncol'>
                   <button className="btn btn-edit" onClick={() => handleEdit(el)}>Edit</button>
                   <button className="btn btn-delete" onClick={() => handleDelete(el._id)}>Delete</button>

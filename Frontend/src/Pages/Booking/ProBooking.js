@@ -6,7 +6,7 @@ axios.defaults.baseURL = "http://localhost:4000/api";
 
 function ProBooking() {
 
-  const [dataList, setDataList] = useState([])
+  const [dataList, setDataList] = useState([]);
 
   const getFetchData = async () => {
     const response = await axios.get("/programmes");
@@ -29,33 +29,27 @@ function ProBooking() {
 
   const handleAproved = async (programme) => {
     try {
-      const response = await axios.post("/booking", programme);
+      const updatedProgramme = { ...programme, status: "Approved" };
+      const response = await axios.put(`/programmes/${programme._id}`, updatedProgramme);
       if (response.status === 200) {
         alert("Programme approved successfully");
-        getFetchDatabooking();
+        setDataList(prevDataList =>
+          prevDataList.map(el => (el._id === programme._id ? { ...el, status: "Approved" } : el))
+        );
       }
     } catch (error) {
       alert("Error approving programme: " + error.message);
     }
   };
 
-  const getFetchDatabooking = async () => {
-    const response = await axios.get("/booking");
-    if (response.status === 200) {
-      setDataList(response.data);
-    }
-  };
-   
   return (
     <>
       <div className="container1">
-        <h1> View All requests</h1>
-        </div>
-        
-        <div className="container">
-        
-        {
-          <div className="table-outer">
+        <h1>View All Requests</h1>
+      </div>
+
+      <div className="container">
+        <div className="table-outer">
           <div className="tableContainer">
             <table>
               <thead>
@@ -66,18 +60,19 @@ function ProBooking() {
                   <th>Product</th>
                   <th>Service No</th>
                   <th>PP_Num</th>
-                  <th>date</th>
+                  <th>Date</th>
                   <th>Type</th>
                   <th>Location</th>
-                  <th>Proram</th>
+                  <th>Program</th>
                   <th>Epi No</th>
                   <th>Duration</th>
-                  <th>Telicast Date</th>
-                  <th>Telicast Time</th>
-                  <th>Channal</th>
+                  <th>Telecast Date</th>
+                  <th>Telecast Time</th>
+                  <th>Channel</th>
                   <th>Freq</th>
                   <th>Type of Book</th>
                   <th>Equipment</th>
+                  <th>Status</th>
                   <th className='buttoncol'></th>
                 </tr>
               </thead>
@@ -103,25 +98,25 @@ function ProBooking() {
                       <td>{el.frequencyOfTelecast}</td>
                       <td>{el.typeOfBooking}</td>
                       <td>{el.equipment}</td>
+                      <td>{el.status}</td>
                       <td className='buttoncol'>
-                        <button className="btn btn-aprove" onClick={() => handleAproved(el)} >Approve</button>
+                        <button className="btn btn-aprove" onClick={() => handleAproved(el)}>Approve</button>
                         <button className="btn btn-delete" onClick={() => handleDelete(el._id)}>Delete</button>
                       </td>
                     </tr>
                   ))
                 ) : (
                   <tr>
-                    <td colSpan="19" style={{ textAlign: "center" }}>No data is Available</td>
+                    <td colSpan="19" style={{ textAlign: "center" }}>No data is available</td>
                   </tr>
                 )}
               </tbody>
             </table>
           </div>
-          </div>
-        }
-        
+        </div>
       </div>
     </>
   );
 }
+
 export default ProBooking;

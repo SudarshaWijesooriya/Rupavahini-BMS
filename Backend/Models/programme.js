@@ -56,6 +56,13 @@ const programmeSchema = new Schema({
     },
     equipment: {
         type: String
+    },
+    status: {
+        type: String,
+        default: "Pending"
+    },
+    email: {
+        type: String
     }
     }, { timestamps: true });
 

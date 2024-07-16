@@ -34,10 +34,10 @@ const getProgramme = async (req, res) => {
 
 // Create a new programme
 const createProgramme = async (req, res) => {
-    const { bookingNo, division, unit, productName, serviceNo, PPNo, date, type, location, proTitle, episodeNo, proDuration, dateOfTelecast, timeOfTelecast, freqOfTelecast, scheduleChannel, typeOfBooking, equipment } = req.body;
+    const { bookingNo, division, unit, productName, serviceNo, PPNo, date, type, location, proTitle, episodeNo, proDuration, dateOfTelecast, timeOfTelecast, freqOfTelecast, scheduleChannel, typeOfBooking, equipment, status, email } = req.body;
 
     try {
-        const programme = await Programme.create({ bookingNo, division, unit, productName, serviceNo, PPNo, date, type, location, proTitle, episodeNo, proDuration, dateOfTelecast, timeOfTelecast, freqOfTelecast, scheduleChannel, typeOfBooking, equipment });
+        const programme = await Programme.create({ bookingNo, division, unit, productName, serviceNo, PPNo, date, type, location, proTitle, episodeNo, proDuration, dateOfTelecast, timeOfTelecast, freqOfTelecast, scheduleChannel, typeOfBooking, equipment, status, email });
         res.status(200).json(programme);
     } catch (error) {
         res.status(400).json({ error: error.message });
