@@ -3,14 +3,6 @@ import "../../../Styles/PBooking.css";
 import axios from 'axios';
 
 const ProFormtable = ({ handleSubmit, handleOnChange, handleclose, rest }) => {
-  const [userEmail, setUserEmail] = useState('');
-
-  useEffect(() => {
-    const email = localStorage.getItem("email");
-    if (email) {
-      setUserEmail(email);
-    }
-  }, []);
 
   return (
     <div className="addContainer">
@@ -216,18 +208,7 @@ const ProFormtable = ({ handleSubmit, handleOnChange, handleclose, rest }) => {
                 value={rest.equipment}
               />
             </div>
-            <div className="lableinputs">
-              <label htmlFor="email">Email:</label>
-              <input
-                type="email"
-                id="email"
-                name="email"
-                onChange={handleOnChange}
-                value={userEmail}
-                placeholder={userEmail}
-                readOnly
-              />
-            </div>
+          
             <button className="btn" type="submit">Submit</button>
           </div>
         </form>

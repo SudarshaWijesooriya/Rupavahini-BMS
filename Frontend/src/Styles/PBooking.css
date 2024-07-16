@@ -215,6 +215,11 @@
   color: white;
 }
 
+.tableContainer .btn-aprove{
+  background-color: #03430b;
+  color: white;
+}
+
 /* Style for last column */
 .tableContainer tbody tr td:last-child,
 .tableContainer thead tr th:last-child {
