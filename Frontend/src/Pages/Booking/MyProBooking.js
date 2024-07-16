@@ -29,7 +29,7 @@ function MyProBooking() {
     freqOfTelecast: "",
     typeOfBooking: "",
     equipment: "",
-    status: "",
+    status: "Pending",
     email: ""
   });
 
@@ -52,6 +52,7 @@ function MyProBooking() {
     freqOfTelecast: "",
     typeOfBooking: "",
     equipment: "",
+    status: "Pending",
     email: "",
     _id: "",
   });

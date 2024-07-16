@@ -29,10 +29,17 @@ function ProBooking() {
 
   const handleAproved = async (programme) => {
     try {
+      const response = await axios.post("/booking", programme);
+      if (response.status === 200) {
+        alert("Programme approved successfully");
+      }
+    } catch (error) {
+      alert("programme alredy Aproved!");
+    }
+    try {
       const updatedProgramme = { ...programme, status: "Approved" };
       const response = await axios.put(`/programmes/${programme._id}`, updatedProgramme);
       if (response.status === 200) {
-        alert("Programme approved successfully");
         setDataList(prevDataList =>
           prevDataList.map(el => (el._id === programme._id ? { ...el, status: "Approved" } : el))
         );
@@ -40,7 +47,15 @@ function ProBooking() {
     } catch (error) {
       alert("Error approving programme: " + error.message);
     }
+    // getFetchDatabooking();
   };
+
+  // const getFetchDatabooking = async () => {
+  //   const response = await axios.get("/booking");
+  //   if (response.status === 200) {
+  //     setDataList(response.data);
+  //   }
+  // };
 
   return (
     <>
@@ -54,29 +69,29 @@ function ProBooking() {
             <table>
               <thead>
                 <tr>
-                  <th>Booking No</th>
-                  <th>Division</th>
-                  <th>Unit</th>
-                  <th>Product</th>
-                  <th>Service No</th>
-                  <th>PP_Num</th>
-                  <th>Date</th>
-                  <th>Type</th>
-                  <th>Location</th>
-                  <th>Program</th>
-                  <th>Epi No</th>
-                  <th>Duration</th>
-                  <th>Telecast Date</th>
-                  <th>Telecast Time</th>
-                  <th>Channel</th>
-                  <th>Freq</th>
-                  <th>Type of Book</th>
-                  <th>Equipment</th>
-                  <th>Status</th>
-                  <th className='buttoncol'></th>
+                  <th className="booking-no">Booking No</th>
+                  <th className="division">Division</th>
+                  <th className="unit">Unit</th>
+                  <th className="product">Product</th>
+                  <th className="service-no">Service No</th>
+                  <th className="pp-num">PP_Num</th>
+                  <th className="date">Date</th>
+                  <th className="type">Type</th>
+                  <th className="location">Location</th>
+                  <th className="program">Program</th>
+                  <th className="epi-no">Epi No</th>
+                  <th className="duration">Duration</th>
+                  <th className="telecast-date">Telecast Date</th>
+                  <th className="telecast-time">Telecast Time</th>
+                  <th className="freq">Freq</th>
+                  <th className="channel">Channel</th>
+                  <th className="type-of-book">Type of Book</th>
+                  <th className="equipment">Equipment</th>
+                  <th className="status">Status</th>
+                  <th className="buttoncol"></th>
                 </tr>
               </thead>
-              <tbody>
+              <tbody> 
                 {dataList.length > 0 ? (
                   dataList.map((el) => (
                     <tr key={el._id}>
@@ -85,17 +100,17 @@ function ProBooking() {
                       <td>{el.unit}</td>
                       <td>{el.productName}</td>
                       <td>{el.serviceNo}</td>
-                      <td>{el.ppNumber}</td>
+                      <td>{el.PPNo}</td>
                       <td>{el.date}</td>
                       <td>{el.type}</td>
                       <td>{el.location}</td>
-                      <td>{el.programTitle}</td>
+                      <td>{el.proTitle}</td>
                       <td>{el.episodeNo}</td>
-                      <td>{el.programeDuration}</td>
+                      <td>{el.proDuration}</td>
                       <td>{el.dateOfTelecast}</td>
                       <td>{el.timeOfTelecast}</td>
+                      <td>{el.freqOfTelecast}</td>
                       <td>{el.scheduleChannel}</td>
-                      <td>{el.frequencyOfTelecast}</td>
                       <td>{el.typeOfBooking}</td>
                       <td>{el.equipment}</td>
                       <td>{el.status}</td>

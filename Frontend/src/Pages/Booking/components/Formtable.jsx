@@ -6,12 +6,11 @@ const Formtable = ({handleSubmit,handleOnChange,handleclose,rest}) => {
   return (
     <div className="addContainer">
       <div className='smalladdcontainer'>
-            <form onSubmit={handleSubmit}>
-              <div className="close-btn" onClick={handleclose}>
-              
-                {/* <CloseRoundedIcon /> */}
-              </div>
-              <div className="form-grid">
+        <form onSubmit={handleSubmit}>
+          <div className="close-btn" onClick={handleclose}>
+            {/* <CloseRoundedIcon /> */}
+          </div>
+          <div className="form-grid">
                 <div className="lableinputs">
                   <label htmlFor="bookingNo">Booking No:</label>
                   <input
@@ -68,9 +67,9 @@ const Formtable = ({handleSubmit,handleOnChange,handleclose,rest}) => {
                   <input
                     type="text"
                     id="ppNumber"
-                    name="ppNumber"
+                    name="PPNo"
                     onChange={handleOnChange}
-                    value={rest.ppNumber}
+                    value={rest.PPNo}
                   />
                 </div>
                 <div className="lableinputs">
@@ -107,9 +106,9 @@ const Formtable = ({handleSubmit,handleOnChange,handleclose,rest}) => {
                   <input
                     type="text"
                     id="programTitle"
-                    name="programTitle"
+                    name="proTitle"
                     onChange={handleOnChange}
-                    value={rest.programTitle}
+                    value={rest.proTitle}
                   />
                 </div>
                 <div className="lableinputs">
@@ -127,9 +126,9 @@ const Formtable = ({handleSubmit,handleOnChange,handleclose,rest}) => {
                   <input
                     type="text"
                     id="programeDuration"
-                    name="programeDuration"
+                    name="proDuration"
                     onChange={handleOnChange}
-                    value={rest.programeDuration}
+                    value={rest.proDuration}
                   />
                 </div>
                 <div className="lableinputs">
@@ -156,7 +155,7 @@ const Formtable = ({handleSubmit,handleOnChange,handleclose,rest}) => {
                   <label htmlFor="frequencyOfTelecast">
                     Frequency of Telecast:
                   </label>
-                  <select id="frequencyOfTelecast" name="frequencyOfTelecast" onChange={handleOnChange} value={rest.frequencyOfTelecast}>
+                  <select id="frequencyOfTelecast" name="freqOfTelecast" onChange={handleOnChange} value={rest.freqOfTelecast}>
                     <option value="single">Single</option>
                     <option value="daily">Daily</option>
                     <option value="weekly">Weekly</option>

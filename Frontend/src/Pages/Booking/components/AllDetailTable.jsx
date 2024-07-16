@@ -21,8 +21,8 @@ function AllDetailTable({ dataList, handleEdit, handleDelete }) {
             <th>Duration</th>
             <th>Telicast Date</th>
             <th>Telicast Time</th>
-            <th>Channal</th>
             <th>Freq</th>
+            <th>Channal</th>
             <th>Type of Book</th>
             <th>Equipment</th>
             <th className='buttoncol'></th>
@@ -33,23 +33,23 @@ function AllDetailTable({ dataList, handleEdit, handleDelete }) {
             dataList.map((el) => (
               <tr key={el._id}>
                 <td>{el.bookingNo}</td>
-                <td>{el.division}</td>
-                <td>{el.unit}</td>
-                <td>{el.productName}</td>
-                <td>{el.serviceNo}</td>
-                <td>{el.ppNumber}</td>
-                <td>{el.date}</td>
-                <td>{el.type}</td>
-                <td>{el.location}</td>
-                <td>{el.programTitle}</td>
-                <td>{el.episodeNo}</td>
-                <td>{el.programeDuration}</td>
-                <td>{el.dateOfTelecast}</td>
-                <td>{el.timeOfTelecast}</td>
-                <td>{el.scheduleChannel}</td>
-                <td>{el.frequencyOfTelecast}</td>
-                <td>{el.typeOfBooking}</td>
-                <td>{el.equipment}</td>
+                  <td>{el.division}</td>
+                  <td>{el.unit}</td>
+                  <td>{el.productName}</td>
+                  <td>{el.serviceNo}</td>
+                  <td>{el.PPNo}</td>
+                  <td>{el.date}</td>
+                  <td>{el.type}</td>
+                  <td>{el.location}</td>
+                  <td>{el.proTitle}</td>
+                  <td>{el.episodeNo}</td>
+                  <td>{el.proDuration}</td>
+                  <td>{el.dateOfTelecast}</td>
+                  <td>{el.timeOfTelecast}</td>
+                  <td>{el.freqOfTelecast}</td>
+                  <td>{el.scheduleChannel}</td>
+                  <td>{el.typeOfBooking}</td>
+                  <td>{el.equipment}</td>
                 <td className='buttoncol'>
                   <button className="btn btn-edit" onClick={() => handleEdit(el)}>Edit</button>
                   <button className="btn btn-delete" onClick={() => handleDelete(el._id)}>Delete</button>
