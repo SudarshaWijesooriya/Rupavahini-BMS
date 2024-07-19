@@ -57,6 +57,30 @@ function ProBooking() {
   //   }
   // };
 
+  const handleReject = async (programme) => {
+    try {
+      const response = await axios.post("/booking", programme);
+      if (response.status === 200) {
+        alert("Programme has Rejected successfully");
+      }
+    } catch (error) {
+      alert("programme alredy Aproved or Rejected!");
+    }
+    try {
+      const updatedProgramme = { ...programme, status: "Rejected" };
+      const response = await axios.put(`/programmes/${programme._id}`, updatedProgramme);
+      if (response.status === 200) {
+        setDataList(prevDataList =>
+          prevDataList.map(el => (el._id === programme._id ? { ...el, status: "Rejected" } : el))
+        );
+      }
+    } catch (error) {
+      alert("Error Rejecting programme: " + error.message);
+    }
+    // getFetchDatabooking();
+  };
+
+
   return (
     <>
       <div className="container1">
@@ -116,6 +140,7 @@ function ProBooking() {
                       <td>{el.status}</td>
                       <td className='buttoncol'>
                         <button className="btn btn-aprove" onClick={() => handleAproved(el)}>Approve</button>
+                        <button className="btn btn-reject" onClick={() => handleReject(el)}>Reject</button>
                         <button className="btn btn-delete" onClick={() => handleDelete(el._id)}>Delete</button>
                       </td>
                     </tr>

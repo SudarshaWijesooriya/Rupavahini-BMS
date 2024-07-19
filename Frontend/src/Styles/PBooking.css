@@ -196,6 +196,7 @@
   background-color: #d4cfcf;
 }
 
+.tableContainer .btn-reject,
 .tableContainer .btn-aprove,
 .tableContainer .btn-edit,
 .tableContainer .btn-delete{
@@ -217,6 +218,11 @@
 
 .tableContainer .btn-delete{
   background-color: #d52405;
+  color: white;
+}
+
+.tableContainer .btn-reject{
+  background-color: #d87427;
   color: white;
 }
 
