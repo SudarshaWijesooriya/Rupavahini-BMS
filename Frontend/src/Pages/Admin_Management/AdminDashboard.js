@@ -61,7 +61,7 @@ const AdminDashboard = () => {
                             setActiveIndex(2)
                         }}
                         key="Pro_Booking" icon={<AreaChartOutlined />}>
-                        Pro Booking
+                        Program Booking
                     </Menu.Item>
                     <Menu.Item
                         onClick={() => {

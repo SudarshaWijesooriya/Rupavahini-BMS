@@ -122,7 +122,7 @@ function PBooking() {
     <>
       <div className="container1">
         <button className="btn btn-add" onClick={() => setAddSection(true)}>
-          Add a Proramme - Admin
+        Add a New Program - Admin
         </button>
         </div>
         

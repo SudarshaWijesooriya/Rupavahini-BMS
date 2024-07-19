@@ -138,7 +138,7 @@ function MyProBooking() {
     <>
       <div className="container1">
         <button className="btn btn-add" onClick={() => setAddSection(true)}>
-          Add a Programme
+          Add a New Program
         </button>
       </div>
       
